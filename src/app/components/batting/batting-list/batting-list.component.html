@@ -1,14 +1,7 @@
 <div class="row" *ngIf="battingStats && cbsPage">
   <div class="col-12">
-    <div class="row justify-content-center mb-2">
-      <div class="btn-group" role="group">
-        <button type="button" class="btn btn-outline-info" (click)="setExtendedStatsToggle(false)">Standard</button>
-        <button type="button" class="btn btn-outline-info" (click)="setExtendedStatsToggle(true)">Extended</button>
-      </div>
-      <!-- Switch between basic and advance stats here. Right Algin -->
-    </div>
     <div class="row" *ngIf="!extendedStatsToggle">
-      <table class="table table-sm table-striped table-responsive-md table-bordered table-hover" style="width: auto" matSort (matSortChange)="sortData($event)">
+      <table class="table table-sm table-striped table-responsive-md table-hover" matSort (matSortChange)="sortData($event)">
         <thead class="th-info">
           <tr>
             <th scope="col" class="text-center">Name</th>
@@ -22,7 +15,7 @@
             <th scope="col" class="text-center">BB</th>
             <th scope="col" class="text-center">HBP</th>
             <th scope="col" class="text-center">SO</th>
-            <th scope="col" class="text-center">AVG</th>
+            <th mat-sort-header="AVG" class="text-center justify-content-center align-items-center align-content-center">AVG</th>
             <th scope="col" class="text-center">OBP</th>
             <th scope="col" class="text-center">SLG</th>
             <th scope="col" class="text-center">OPS</th>
@@ -88,6 +81,11 @@
           <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" (pageChange)="refreshStatPage()" size="sm"
                           [maxSize]="5" [rotate]="true" [ellipses]="true" [boundaryLinks]="true">
           </ngb-pagination>
+
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-outline-info" (click)="setExtendedStatsToggle(false)" >Standard</button>
+            <button type="button" class="btn btn-outline-info" (click)="setExtendedStatsToggle(true)">Extended</button>
+          </div>
 
           <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshStatPage()">
             <option *ngFor="let pageSize of pageSizeOptions" [ngValue]="pageSize">{{pageSize}} entries</option>
