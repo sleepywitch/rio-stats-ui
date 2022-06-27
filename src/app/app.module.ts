@@ -14,10 +14,7 @@ import { GameBasicSearchComponent } from './components/games/game-basic-search/g
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatSortModule} from "@angular/material/sort";
 import {MatTableModule} from "@angular/material/table";
-import { CharacterDataListComponent } from './components/character-data/character-data-list/character-data-list.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import { RankedFilterWidgetComponent } from './components/widgets/ranked-filter-widget/ranked-filter-widget.component';
-import { SuperstarsFilterWidgetComponent } from './components/widgets/superstars-filter-widget/superstars-filter-widget.component';
 import { CharacterBattingSearchComponent } from './components/batting/character-batting-search/character-batting-search.component';
 import { BattingListComponent } from './components/batting/batting-list/batting-list.component';
 import { PlayerBattingSearchComponent } from './components/batting/player-batting-search/player-batting-search.component';
@@ -30,9 +27,6 @@ import { PlayerBattingSearchComponent } from './components/batting/player-battin
     LayoutComponent,
     GameListComponent,
     GameBasicSearchComponent,
-    CharacterDataListComponent,
-    RankedFilterWidgetComponent,
-    SuperstarsFilterWidgetComponent,
     CharacterBattingSearchComponent,
     BattingListComponent,
     PlayerBattingSearchComponent

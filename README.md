@@ -1,27 +1,23 @@
-# Ngapp
+# Project Rio UI
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.2.
+[Project Rio](https://www.projectrio.online) | [Project Rio Stats API](https://github.com/ProjectRio/ProjectRio-web) | [Project Rio Discord](https://discord.gg/ZMFCuvwAyH)
 
-## Development server
+Hello! This is a prototype user interface to access Project Rio Stats. Currently only the game basic search, batting stats by character and by player are functioning.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## How to Run
 
-## Code scaffolding
+Run `ng serve --open` in the root directory. for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## How to Develop
 
-## Build
+Familiarity with angular - bootstrap - typescript/json - npm - html are all good starting points. This is the list of local installs I had to do to get this running. You may have to do the same:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+* `npm i @angular/cli`
+* `nom i @angular/cdk`
+* `npm i @angular/material`
+* `npm i @ng-table`
+* `npm i postcss-custom-selectors`
 
 ## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+If in doubt you can reach out to me on discord at SleepyWitch#3063 or find more support at the [Project Rio Discord](https://discord.gg/ZMFCuvwAyH)
