@@ -1,0 +1,99 @@
+<div class="row" *ngIf="battingStats && cbsPage">
+  <div class="col-12">
+    <div class="row justify-content-center mb-2">
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-outline-info" (click)="setExtendedStatsToggle(false)">Standard</button>
+        <button type="button" class="btn btn-outline-info" (click)="setExtendedStatsToggle(true)">Extended</button>
+      </div>
+      <!-- Switch between basic and advance stats here. Right Algin -->
+    </div>
+    <div class="row" *ngIf="!extendedStatsToggle">
+      <table class="table table-sm table-striped table-responsive-md table-bordered table-hover" style="width: auto" matSort (matSortChange)="sortData($event)">
+        <thead class="th-info">
+          <tr>
+            <th scope="col" class="text-center">Name</th>
+            <th scope="col" class="text-center">PA</th>
+            <th scope="col" class="text-center">AB</th>
+            <th scope="col" class="text-center">H</th>
+            <th scope="col" class="text-center">2B</th>
+            <th scope="col" class="text-center">3B</th>
+            <th scope="col" class="text-center">HR</th>
+            <th scope="col" class="text-center">RBI</th>
+            <th scope="col" class="text-center">BB</th>
+            <th scope="col" class="text-center">HBP</th>
+            <th scope="col" class="text-center">SO</th>
+            <th scope="col" class="text-center">AVG</th>
+            <th scope="col" class="text-center">OBP</th>
+            <th scope="col" class="text-center">SLG</th>
+            <th scope="col" class="text-center">OPS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cbs of cbsPage">
+            <td class="text-center">{{cbs.character}}</td>
+            <td class="text-center">{{cbs.rawBattingStats.plate_appearances}}</td>
+            <td class="text-center">{{cbs.rawBattingStats.summary_at_bats}}</td>
+            <td class="text-center">{{cbs.rawBattingStats.summary_hits}}</td>
+            <td class="text-center">{{cbs.rawBattingStats.summary_doubles}}</td>
+            <td class="text-center">{{cbs.rawBattingStats.summary_triples}}</td>
+            <td class="text-center">{{cbs.rawBattingStats.summary_homeruns}}</td>
+            <td class="text-center">{{cbs.rawBattingStats.summary_rbi}}</td>
+            <td class="text-center">{{cbs.rawBattingStats.summary_walks_bb}}</td>
+            <td class="text-center">{{cbs.rawBattingStats.summary_walks_hbp}}</td>
+            <td class="text-center">{{cbs.rawBattingStats.summary_strikeouts}}</td>
+            <td class="text-center">{{cbs.calculatedBattingStats.battingAverage.toFixed(3)}}</td>
+            <td class="text-center">{{cbs.calculatedBattingStats.onBasePercentage.toFixed(3)}}</td>
+            <td class="text-center">{{cbs.calculatedBattingStats.sluggingPercentage.toFixed(3)}}</td>
+            <td class="text-center">{{(cbs.calculatedBattingStats.onBasePercentage + cbs.calculatedBattingStats.sluggingPercentage).toFixed(3) }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="row" *ngIf="extendedStatsToggle">
+      <table class="table table-sm table-striped table-responsive-md table-bordered table-hover" matSort (matSortChange)="sortData($event)">
+        <thead class="th-info">
+        <tr>
+          <th scope="col" class="text-center">Name</th>
+          <th scope="col" class="text-center">PA</th>
+          <th scope="col" class="text-center">HBP</th>
+          <th scope="col" class="text-center">SF</th>
+          <th scope="col" class="text-center">BABIP</th>
+          <th scope="col" class="text-center">ISO</th>
+          <th scope="col" class="text-center">AB/HR</th>
+          <th scope="col" class="text-center">BB/K</th>
+          <th scope="col" class="text-center">BB%</th>
+          <th scope="col" class="text-center">SO%</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let cbs of cbsPage">
+          <td class="text-center">{{cbs.character}}</td>
+          <td class="text-center">{{cbs.rawBattingStats.plate_appearances}}</td>
+          <td class="text-center">{{cbs.rawBattingStats.summary_walks_hbp}}</td>
+          <td class="text-center">{{cbs.rawBattingStats.sacflys}}</td>
+          <td class="text-center">{{cbs.calculatedBattingStats.battingAverageOnBallsInPlay.toFixed(3)}}</td>
+          <td class="text-center">{{cbs.calculatedBattingStats.isolatedPower.toFixed(3)}}</td>
+          <td class="text-center">{{cbs.calculatedBattingStats.atBatsPerHomeRun.toFixed(2)}}</td>
+          <td class="text-center">{{cbs.calculatedBattingStats.walksToStrikeouts.toFixed(3)}}</td>
+          <td class="text-center">{{cbs.calculatedBattingStats.walkPercentage.toFixed(3)}}</td>
+          <td class="text-center">{{cbs.calculatedBattingStats.strikeoutPercentage.toFixed(3)}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="d-flex justify-content-between p-2">
+          <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" (pageChange)="refreshStatPage()" size="sm"
+                          [maxSize]="5" [rotate]="true" [ellipses]="true" [boundaryLinks]="true">
+          </ngb-pagination>
+
+          <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshStatPage()">
+            <option *ngFor="let pageSize of pageSizeOptions" [ngValue]="pageSize">{{pageSize}} entries</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

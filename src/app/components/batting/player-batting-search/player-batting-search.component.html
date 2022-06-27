@@ -1,0 +1,48 @@
+<div class="col-lg">
+  <div class="row">
+    <div class="col-sm mb-3">
+      <h4 style="font-weight: bold">Player Batting Stats</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <form [formGroup]="userBattingFormGroup" (ngSubmit)="search()">
+        <div class="form-row form-inline mb-3">
+          <div class="col-3">
+            <label for="usernameInput">Username:</label>
+          </div>
+          <div class="col-3">
+            <input type="text" class="form-control-sm " id="usernameInput" placeholder="GenericUser" formControlName="usernameFG">
+          </div>
+        </div>
+        <div class="form-row form-inline mb-3">
+          <div class="col-3">
+            <label for="rankedTypeSelect">Ranked Type:</label>
+          </div>
+          <div class="col-3">
+            <select class="form-control form-select" id="rankedTypeSelect" formControlName="rankedTypeFG">
+              <option *ngFor="let rankType of rankSelectTypes">{{rankType}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row form-inline mb-3">
+          <div class="col-3">
+            <label for="superstarTypeSelect">Superstar Type:</label>
+          </div>
+          <div class="col-3">
+            <select class="form-control form-select" id="superstarTypeSelect" formControlName="superstarTypeFG">
+              <option *ngFor="let superstarType of superstarSelectTypes">{{superstarType}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row form-inline text-center">
+          <div class="col-6">
+            <button type="submit" class="btn btn-info btn-sm mb-2">Search</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<hr/>
+<app-batting-list [battingStatsInput]="userBattingStats"></app-batting-list>

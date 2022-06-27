@@ -1,0 +1,6 @@
+export enum StatBlockTypeEnum {
+  USERNAME,
+  CHARACTER,
+  CHARACTER_FOR_USER,
+  CHARACTER_VS_USER
+}

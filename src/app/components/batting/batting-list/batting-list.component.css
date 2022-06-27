@@ -1,0 +1,11 @@
+.mat-sort-header-container {
+  align-items: center;
+}
+
+mat-header-cell, mat-cell {
+  justify-content: center;
+}
+
+th.mat-header-cell {
+  text-align: center !important;
+}

@@ -1,0 +1,73 @@
+<div class="row" *ngIf="gameList">
+  <div class="col-12">
+    <div class="row">
+      <div class="col-md-auto">
+        <h5 style="font-weight: bold">Game History</h5>
+      </div>
+      <div class="col-sm-auto">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="allGamesRadio" value="option1" (change)="resetToAll()" checked>
+          <label class="form-check-label" for="allGamesRadio">All</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="rankedGamesRadio" value="option2" (change)="filterForRanked()">
+          <label class="form-check-label" for="rankedGamesRadio">Ranked</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="unrankedGamesRadio" value="option3" (change)="filterForUnranked()">
+          <label class="form-check-label" for="unrankedGamesRadio">Unranked</label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="row">
+          <table class="table table-sm table-striped table-responsive-md table-bordered table-hover" matSort (matSortChange)="sortData($event)">
+            <thead class="th-info">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col" class="text-center">Innings</th>
+                <th scope="col">Home Score</th>
+                <th scope="col">Away Score</th>
+                <th scope="col">Home</th>
+                <th scope="col">Away</th>
+                <th scope="col">Home Captain</th>
+                <th scope="col">Away Captain</th>
+                <th scope="col" mat-sort-header="date">Date</th>
+                <th scope="col">Tags</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let game of gamePage">
+                <td>{{game.Id}}</td>
+                <td class="text-center">{{game.InningsPlayed}}</td>
+                <td>{{game.HomeScore}}</td>
+                <td>{{game.AwayScore}}</td>
+                <td>{{game.HomeUser}}</td>
+                <td>{{game.AwayUser}}</td>
+                <td>{{game.HomeCaptain}}</td>
+                <td>{{game.AwayCaptain}}</td>
+                <td>{{parseDateNumber(game.date_time_start)}}</td>
+                <td>{{game.Tags}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <div class="d-flex justify-content-between p-2">
+              <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" (pageChange)="refreshGamesList()" size="sm"
+                              [maxSize]="5" [rotate]="true" [ellipses]="true" [boundaryLinks]="true">
+              </ngb-pagination>
+
+              <select class="form-select form-select-sm" style="..." [(ngModel)]="pageSize" (ngModelChange)="refreshGamesList()">
+                <option *ngFor="let pageSize of pageSizeOptions" [ngValue]="pageSize">{{pageSize}} games per page</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

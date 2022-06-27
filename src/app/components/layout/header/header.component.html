@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
+  <div class="container-fluid">
+    <a class="navbar-brand" [routerLink]="['/']">Mario Superstars Project Rio Stats</a>
+    <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
+      &#9776;
+    </button>
+    <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
+      <ul class="navbar-nav ">
+        <li class="nav-item dropdown">
+          <div ngbDropdown class="d-inline-block">
+            <a class="nav-link dropdown-toggle" id="ddGamesMenuLink" ngbDropdownToggle>
+              Games
+            </a>
+            <div class="dropdown-menu" aria-labelledby="ddGamesMenuLink" ngbDropdownMenu>
+              <a class="dropdown-item" [routerLink]="['/games-basic']" (click)="isMenuCollapsed = true">Basic Search</a>
+              <a class="dropdown-item" [routerLink]="['/games-complex']" (click)="isMenuCollapsed = true">Advance Search</a>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <div ngbDropdown class="d-inline-block">
+            <a class="nav-link dropdown-toggle" id="ddBattingMenuLink" ngbDropdownToggle>
+              Batting Stats
+            </a>
+            <div class="dropdown-menu" aria-labelledby="ddBattingMenuLink" ngbDropdownMenu>
+              <a class="dropdown-item" [routerLink]="['/batting-character']" (click)="isMenuCollapsed = true">By Character</a>
+              <a class="dropdown-item" [routerLink]="['/batting-player']" (click)="isMenuCollapsed = true">By Player</a>
+              <a class="dropdown-item" [routerLink]="['/batting-player-leaderboard']" (click)="isMenuCollapsed = true">Player Leaderboard</a>
+              <a class="dropdown-item" [routerLink]="['/batting-character-leaderboard']" (click)="isMenuCollapsed = true">Character Leaderboard</a>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <div ngbDropdown class="d-inline-block">
+            <a class="nav-link dropdown-toggle" id="ddPitchingMenuLink" ngbDropdownToggle>
+              Pitching Stats
+            </a>
+            <div class="dropdown-menu" aria-labelledby="ddPitchingMenuLink" ngbDropdownMenu>
+              <a class="dropdown-item" [routerLink]="['/pitching-character']" (click)="isMenuCollapsed = true">By Character</a>
+              <a class="dropdown-item" [routerLink]="['/pitching-player']" (click)="isMenuCollapsed = true">By Player</a>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/character-data']" (click)="isMenuCollapsed = true">Character Data</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
