@@ -4,21 +4,21 @@
       <table class="table table-sm table-striped table-responsive-md table-hover" matSort (matSortChange)="sortData($event)">
         <thead class="th-info">
           <tr class="text-center justify-content-center align-items-center align-content-center">
-            <th scope="col" class="text-center">Name</th>
-            <th scope="col" class="text-center">PA</th>
-            <th scope="col" class="text-center">AB</th>
-            <th scope="col" class="text-center">H</th>
-            <th scope="col" class="text-center">2B</th>
-            <th scope="col" class="text-center">3B</th>
-            <th scope="col" class="text-center">HR</th>
-            <th scope="col" class="text-center">RBI</th>
-            <th scope="col" class="text-center">BB</th>
-            <th scope="col" class="text-center">HBP</th>
-            <th scope="col" class="text-center">SO</th>
-            <th mat-sort-header="AVG" class="text-center justify-content-center align-items-center align-content-center">AVG</th>
-            <th scope="col" class="text-center">OBP</th>
-            <th scope="col" class="text-center">SLG</th>
-            <th scope="col" class="text-center">OPS</th>
+            <th mat-sort-header="NAME">NAME</th>
+            <th mat-sort-header="PA">PA</th>
+            <th mat-sort-header="AB">AB</th>
+            <th mat-sort-header="H">H</th>
+            <th mat-sort-header="2B">2B</th>
+            <th mat-sort-header="3B">3B</th>
+            <th mat-sort-header="HR">HR</th>
+            <th mat-sort-header="RBI">RBI</th>
+            <th mat-sort-header="BB">BB</th>
+            <th mat-sort-header="HBP">HBP</th>
+            <th mat-sort-header="SO">SO</th>
+            <th mat-sort-header="AVG" data-toggle="tooltip" data-trigger="hover" data-container="body" data-placement="top" data-html="true" data-title="<b>Batting Average</b><br/>The rate of hits per at-bat (H/AB)">AVG</th>
+            <th mat-sort-header="OBP">OBP</th>
+            <th mat-sort-header="SLG">SLG</th>
+            <th mat-sort-header="OPS">OPS</th>
           </tr>
         </thead>
         <tbody>
@@ -37,25 +37,25 @@
             <td class="text-center">{{cbs.calculatedBattingStats.battingAverage.toFixed(3)}}</td>
             <td class="text-center">{{cbs.calculatedBattingStats.onBasePercentage.toFixed(3)}}</td>
             <td class="text-center">{{cbs.calculatedBattingStats.sluggingPercentage.toFixed(3)}}</td>
-            <td class="text-center">{{(cbs.calculatedBattingStats.onBasePercentage + cbs.calculatedBattingStats.sluggingPercentage).toFixed(3) }}</td>
+            <td class="text-center">{{(cbs.calculatedBattingStats.onBasePlusSlugging).toFixed(3) }}</td>
           </tr>
         </tbody>
       </table>
     </div>
     <div class="row" *ngIf="extendedStatsToggle">
-      <table class="table table-sm table-striped table-responsive-md table-bordered table-hover" matSort (matSortChange)="sortData($event)">
+      <table class="table table-sm table-striped table-responsive-md table-hover" matSort (matSortChange)="sortData($event)">
         <thead class="th-info">
         <tr>
-          <th scope="col" class="text-center">Name</th>
-          <th scope="col" class="text-center">PA</th>
-          <th scope="col" class="text-center">HBP</th>
-          <th scope="col" class="text-center">SF</th>
-          <th scope="col" class="text-center">BABIP</th>
-          <th scope="col" class="text-center">ISO</th>
-          <th scope="col" class="text-center">AB/HR</th>
-          <th scope="col" class="text-center">BB/K</th>
-          <th scope="col" class="text-center">BB%</th>
-          <th scope="col" class="text-center">SO%</th>
+          <th mat-sort-header="NAME">Name</th>
+          <th mat-sort-header="PA">PA</th>
+          <th mat-sort-header="HBP">HBP</th>
+          <th mat-sort-header="SF">SF</th>
+          <th mat-sort-header="BABIP">BABIP</th>
+          <th mat-sort-header="ISO">ISO</th>
+          <th mat-sort-header="ABHR">AB/HR</th>
+          <th mat-sort-header="BBK">BB/K</th>
+          <th mat-sort-header="BB%">BB%</th>
+          <th mat-sort-header="SO%">SO%</th>
         </tr>
         </thead>
         <tbody>

@@ -5,17 +5,18 @@
   text-align: center !important;
 }
 
-mat-sort-header-container {
-  align-items: center !important;
-  justify-content: center !important;
-  text-align: center !important;
+table tr td:nth-child(1) {
+  border-right: 1px solid black;
 }
 
-table {
-  text-align: center !important;
-  width: 100%;
+table tr td:nth-child(3) {
+  border-right: 1px solid black;
 }
 
-.mat-header-cell {
-  text-align: center;
+table tr td:nth-child(8) {
+  border-right: 1px solid black;
+}
+
+table tr td:nth-child(10) {
+  border-right: 1px solid black;
 }

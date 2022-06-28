@@ -23,10 +23,10 @@
               Batting Stats
             </a>
             <div class="dropdown-menu" aria-labelledby="ddBattingMenuLink" ngbDropdownMenu>
-              <a class="dropdown-item" [routerLink]="['/batting-character']" (click)="isMenuCollapsed = true">By Character</a>
+              <a class="dropdown-item" [routerLink]="['/batting-character']" (click)="isMenuCollapsed = true">All Characters</a>
               <a class="dropdown-item" [routerLink]="['/batting-player']" (click)="isMenuCollapsed = true">By Player</a>
-              <a class="dropdown-item" [routerLink]="['/batting-player-leaderboard']" (click)="isMenuCollapsed = true">Player Leaderboard</a>
-              <a class="dropdown-item" [routerLink]="['/batting-character-leaderboard']" (click)="isMenuCollapsed = true">Character Leaderboard</a>
+              <a class="dropdown-item" [routerLink]="['/batting-leaderboard']" (click)="isMenuCollapsed = true">Leaderboard</a>
+              <a class="dropdown-item" [routerLink]="['/batting-advance']" (click)="isMenuCollapsed = true">Advanced</a>
             </div>
           </div>
         </li>

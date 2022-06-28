@@ -49,6 +49,9 @@ export class PlayerBattingSearchComponent implements OnInit {
         this.userBattingStats = [];      //instantiate
         Object.entries(data.Stats).forEach(
           ([key, value]) => {
+            if (!value.Batting.plate_appearances) {
+              return; //bad data
+            }
             let characterStatBlock = new StatBlock();
             characterStatBlock.character = key;
             characterStatBlock.username = username;

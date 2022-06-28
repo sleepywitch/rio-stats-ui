@@ -32,6 +32,17 @@
           </div>
           <div class="col-2">
             <div class="form-group row">
+              <label for="dateSelect" class="col-auto col-form-label">Date Range:</label>
+              <select class="form-control form-select" id="dateSelect">
+                <option selected>All to Date</option>
+                <option>Last 7 Days</option>
+                <option>Last 15 Days</option>
+                <option>Last 30 Days</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="form-group row">
               <button type="submit" class="btn btn-info">Search</button>
             </div>
           </div>
@@ -41,4 +52,8 @@
   </div>
 </div>
 <hr/>
-<app-batting-list [battingStatsInput]="userBattingStats"></app-batting-list>
+<div class="row justify-content-center text-center align-content-center">
+  <div class="col-10 ">
+    <app-batting-list [battingStatsInput]="userBattingStats"></app-batting-list>
+  </div>
+</div>
