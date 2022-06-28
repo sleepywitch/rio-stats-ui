@@ -1,5 +1,21 @@
-.mat-sort-header-container {
+:host ::ng-deep .mat-sort-header-container {
+  display: flex;
   align-items: center !important;
   justify-content: center !important;
   text-align: center !important;
+}
+
+mat-sort-header-container {
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+table {
+  text-align: center !important;
+  width: 100%;
+}
+
+.mat-header-cell {
+  text-align: center;
 }
