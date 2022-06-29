@@ -5,9 +5,10 @@ import {RankedTypeEnum} from "../../../model/enum/ranked-type-enum";
 import {StatBlock} from "../../../model/stats/stat-block";
 import {EnumUtilities} from "../../../utilities/enums/enum-utilities";
 import {RioDetailedStatsService} from "../../../services/rio/rio-detailed-stats.service";
-import {RioCharacterStatsList} from "../../../model/rio/rio-character-stats";
+import {RioCharacterStatsList} from "../../../model/rio/rio-detailed-stats";
 import {CalculatedStatsUtil} from "../../../utilities/stats/calculated-stats-util";
 import {StatBlockTypeEnum} from "../../../model/enum/stat-block-type-enum";
+import {DateSearchRangeEnum} from "../../../model/enum/date-search-range-enum";
 
 @Component({
   selector: 'app-character-batting-search',
@@ -19,6 +20,7 @@ export class CharacterBattingSearchComponent implements OnInit {
   charBattingFormGroup: FormGroup;
   rankSelectTypes: string[];
   superstarSelectTypes: string[];
+  dateSearchRanges: string[];
 
   characterBattingStats: StatBlock[];
 
@@ -28,16 +30,20 @@ export class CharacterBattingSearchComponent implements OnInit {
   ngOnInit(): void {
     this.charBattingFormGroup = this.formBuilder.group({
       'rankedTypeFG': [],
-      'superstarTypeFG': []
+      'superstarTypeFG': [],
+      'dateSearchRangeFG': []
     });
     this.rankSelectTypes = Object.values(RankedTypeEnum);
     this.superstarSelectTypes = Object.values(SuperstarsTypeEnum);
+    this.dateSearchRanges = Object.values(DateSearchRangeEnum);
   }
 
   search() {
     if (this.charBattingFormGroup.valid) {
       const control = this.charBattingFormGroup.value;
       let tagList = EnumUtilities.getTagListFromStrings(control.rankedTypeFG, control.superstarTypeFG);
+      let dateRange = EnumUtilities.getUnixTimeStampFromDateSearchRange(control.dateSearchRangeFG? DateSearchRangeEnum.ALL_TO_DATE : control.dateSearchRangeFG);
+      console.log(dateRange);
       this.getCharacterBattingStats(tagList);
     }
   }

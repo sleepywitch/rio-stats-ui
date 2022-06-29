@@ -3,7 +3,7 @@ import {Game, GameHistory, RioGamesService} from "../../../services/rio/rio-game
 import {DatePipe} from "@angular/common";
 import {Sort} from "@angular/material/sort";
 import {RioDetailedStatsService} from "../../../services/rio/rio-detailed-stats.service";
-import {RioCharacterStats, RioCharacterStatsList} from "../../../model/rio/rio-character-stats";
+import {RioDetailedStats, RioCharacterStatsList} from "../../../model/rio/rio-detailed-stats";
 
 @Component({
   selector: 'app-game-list',

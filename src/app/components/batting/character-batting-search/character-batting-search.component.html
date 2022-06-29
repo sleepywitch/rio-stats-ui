@@ -1,40 +1,47 @@
-<div class="col-lg">
+<div class="col">
   <div class="row">
     <div class="col-sm mb-3">
       <h4 style="font-weight: bold">Character Batting Stats</h4>
     </div>
   </div>
   <div class="row">
-    <div class="col-4">
+    <div class="col-12">
       <form [formGroup]="charBattingFormGroup" (ngSubmit)="search()">
-        <div class="form-row form-inline mb-3">
-          <div class="col-3">
-            <label for="rankedTypeSelect">Ranked Type:</label>
+        <div class="form-row form-inline mb-3 justify-content-evenly">
+          <div class="col-xl-2 col-sm-4">
+            <div class="form-group row">
+              <label for="rankedTypeSelect" class="col-auto col-form-label">Ranked Type:</label>
+              <select class="form-control form-select" id="rankedTypeSelect" formControlName="rankedTypeFG">
+                <option *ngFor="let rankType of rankSelectTypes">{{rankType}}</option>
+              </select>
+            </div>
           </div>
-          <div class="col-3">
-            <select class="form-control form-select" id="rankedTypeSelect" formControlName="rankedTypeFG">
-              <option *ngFor="let rankType of rankSelectTypes">{{rankType}}</option>
-            </select>
+          <div class="col-xl-2 col-sm-4">
+            <div class="form-group row">
+              <label for="superstarTypeSelect" class="col-auto col-form-label">Superstar Type:</label>
+              <select class="form-control form-select" id="superstarTypeSelect" formControlName="superstarTypeFG">
+                <option *ngFor="let superstarType of superstarSelectTypes">{{superstarType}}</option>
+              </select>
+            </div>
           </div>
-        </div>
-        <div class="form-row form-inline mb-3">
-          <div class="col-3">
-            <label for="superstarTypeSelect">Superstar Type:</label>
+          <div class="col-xl-2 col-sm-4">
+            <div class="form-group row">
+              <label for="dateSelect" class="col-auto col-form-label">Date Range:</label>
+              <select class="form-control form-select" id="dateSelect" formControlName="dateSearchRangeFG">
+                <option *ngFor="let dateRange of dateSearchRanges">{{dateRange}}</option>
+              </select>
+            </div>
           </div>
-          <div class="col-3">
-            <select class="form-control form-select" id="superstarTypeSelect" formControlName="superstarTypeFG">
-              <option *ngFor="let superstarType of superstarSelectTypes">{{superstarType}}</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-row form-inline text-center">
-          <div class="col-6">
-            <button type="submit" class="btn btn-info btn-sm mb-2">Search</button>
+          <div class="col-xl-2 col-sm-12">
+            <div class="form-group row">
+              <button type="submit" class="btn btn-info">Search</button>
+            </div>
           </div>
         </div>
       </form>
     </div>
   </div>
 </div>
+
 <hr/>
 <app-batting-list [battingStatsInput]="characterBattingStats"></app-batting-list>

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {PlatformLocation} from "@angular/common";
 import {Observable} from "rxjs";
-import {RioCharacterStatsList, RioUserCharacterStatsList, RioUserStatsList} from "../../model/rio/rio-character-stats";
+import {RioCharacterStatsList, RioUserStatsList} from "../../model/rio/rio-detailed-stats";
 import {GameHistory} from "./rio-games.service";
 
 @Injectable({
@@ -12,13 +12,8 @@ export class RioDetailedStatsService {
 
   constructor(private http: HttpClient, private pl: PlatformLocation) { }
 
-  getDetailedCharacterStatsForUsername(username: string): Observable<RioCharacterStatsList> {
-    const params = new HttpParams()
-      .set('username', username)
-      .set('by_char', 1);
 
-    return this.http.get<RioCharacterStatsList>(this.getServiceBaseUrl(), {params});
-  }
+  /* BATTING STATS SERVICES BELOW */
 
   getBattingStatsByCharacter(tags: string[]): Observable<RioCharacterStatsList> {
     let params = new HttpParams()
@@ -54,7 +49,7 @@ export class RioDetailedStatsService {
     return this.http.get<RioCharacterStatsList>(this.getServiceBaseUrl(), {params});
   }
 
-  getCharacterBattingStatsByUser(charId: number, tags: string[]): Observable<RioUserCharacterStatsList> {
+  getOverallCharacterBattingStatsByUser(charId: number, tags: string[]): Observable<RioUserStatsList> {
     let params = new HttpParams()
       .set('by_user', 1)
       .set('char_id', charId)
@@ -63,7 +58,7 @@ export class RioDetailedStatsService {
       .set('exclude_misc', 1);
     tags.forEach((tag: string) => {params = params.append('tag', tag)});
 
-    return this.http.get<RioUserCharacterStatsList>(this.getServiceBaseUrl(), {params});
+    return this.http.get<RioUserStatsList>(this.getServiceBaseUrl(), {params});
   }
 
   private getServiceBaseUrl(): string {

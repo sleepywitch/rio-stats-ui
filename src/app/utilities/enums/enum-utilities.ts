@@ -1,5 +1,6 @@
 import {RankedTypeEnum} from "../../model/enum/ranked-type-enum";
 import {SuperstarsTypeEnum} from "../../model/enum/superstars-type-enum";
+import {DateSearchRangeEnum} from "../../model/enum/date-search-range-enum"
 
 export class EnumUtilities {
 
@@ -52,5 +53,24 @@ export class EnumUtilities {
       }
     }
     return tags;
+  }
+
+  static getUnixTimeStampFromDateSearchRange(dateSearchRange: DateSearchRangeEnum): string {
+    let today = new Date();
+    switch (dateSearchRange) {
+      case DateSearchRangeEnum.ALL_TO_DATE:
+        today = new Date(2020, 0, 1);         //January 1st, 2020 A good start date
+        break;
+      case DateSearchRangeEnum.LAST_7_DAYS:
+        today.setDate(today.getDate()-7);
+        break;
+      case DateSearchRangeEnum.LAST_15_DAYS:
+        today.setDate(today.getDate()-15);
+        break;
+      case DateSearchRangeEnum.LAST_30_DAYS:
+        today.setDate(today.getDate()-30);
+        break;
+    }
+    return Math.floor(today.getTime() / 1000).toFixed(0);
   }
 }

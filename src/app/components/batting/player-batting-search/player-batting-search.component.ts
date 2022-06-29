@@ -5,7 +5,7 @@ import {RioDetailedStatsService} from "../../../services/rio/rio-detailed-stats.
 import {RankedTypeEnum} from "../../../model/enum/ranked-type-enum";
 import {SuperstarsTypeEnum} from "../../../model/enum/superstars-type-enum";
 import {EnumUtilities} from "../../../utilities/enums/enum-utilities";
-import {RioCharacterStatsList} from "../../../model/rio/rio-character-stats";
+import {RioCharacterStatsList} from "../../../model/rio/rio-detailed-stats";
 import {CalculatedStatsUtil} from "../../../utilities/stats/calculated-stats-util";
 import {StatBlockTypeEnum} from "../../../model/enum/stat-block-type-enum";
 

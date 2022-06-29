@@ -6,7 +6,7 @@ import {RankedTypeEnum} from "../../../model/enum/ranked-type-enum";
 import {StatBlock} from "../../../model/stats/stat-block";
 import {SuperstarsTypeEnum} from "../../../model/enum/superstars-type-enum";
 import {EnumUtilities} from "../../../utilities/enums/enum-utilities";
-import {RioUserStatsList} from "../../../model/rio/rio-character-stats";
+import {RioUserStatsList} from "../../../model/rio/rio-detailed-stats";
 import {CalculatedStatsUtil} from "../../../utilities/stats/calculated-stats-util";
 import {StatBlockTypeEnum} from "../../../model/enum/stat-block-type-enum";
 
@@ -53,7 +53,22 @@ export class LeaderboardBattingSearchComponent implements OnInit {
   }
 
   private getLeaderboardBattingStatsByCharacter(character: string, tagList: string[]) {
-
+    let charId = this.characterNames.indexOf(character);
+    this.rioDetailedStatsService.getOverallCharacterBattingStatsByUser(charId, tagList).subscribe(
+      (data: RioUserStatsList) => {
+        this.playerBattingStats = [];     //instantiate
+        Object.entries(data.Stats).forEach(
+          ([key, value]) => {
+            let userStatsBlock = new StatBlock();
+            userStatsBlock.username = key;
+            userStatsBlock.calculatedBattingStats = CalculatedStatsUtil.calculateBattingStats(value.Batting);
+            userStatsBlock.rawBattingStats = value.Batting;
+            userStatsBlock.statBlockType = StatBlockTypeEnum.USERNAME;
+            this.playerBattingStats.push(userStatsBlock);
+          }
+        )
+      }
+    )
   }
 
   private getOverallLeaderboardBattingStats(tagList: string[]) {
@@ -63,7 +78,6 @@ export class LeaderboardBattingSearchComponent implements OnInit {
         Object.entries(data.Stats).forEach(
           ([key, value]) => {
             let userStatBlock = new StatBlock();
-            userStatBlock.character = key;
             userStatBlock.username = key;
             userStatBlock.calculatedBattingStats = CalculatedStatsUtil.calculateBattingStats(value.Batting);
             userStatBlock.rawBattingStats = value.Batting;

@@ -8,13 +8,13 @@
     <div class="col-12">
       <form [formGroup]="userBattingFormGroup" (ngSubmit)="search()">
         <div class="form-row form-inline mb-3 justify-content-evenly">
-          <div class="col-2">
+          <div class="col-xl-2 col-sm-3">
             <div class="form-group row">
               <label for="usernameInput" class="col-auto col-form-label">Username:</label>
               <input type="text" class="form-control-sm " id="usernameInput" placeholder="GenericUser" formControlName="usernameFG">
             </div>
           </div>
-          <div class="col-2">
+          <div class="col-xl-2 col-sm-3">
             <div class="form-group row">
               <label for="rankedTypeSelect" class="col-auto col-form-label">Ranked Type:</label>
               <select class="form-control form-select" id="rankedTypeSelect" formControlName="rankedTypeFG">
@@ -22,7 +22,7 @@
               </select>
             </div>
           </div>
-          <div class="col-2">
+          <div class="col-xl-2 col-sm-3">
             <div class="form-group row">
               <label for="superstarTypeSelect" class="col-auto col-form-label">Superstar Type:</label>
               <select class="form-control form-select" id="superstarTypeSelect" formControlName="superstarTypeFG">
@@ -30,7 +30,7 @@
               </select>
             </div>
           </div>
-          <div class="col-2">
+          <div class="col-xl-2 col-sm-3">
             <div class="form-group row">
               <label for="dateSelect" class="col-auto col-form-label">Date Range:</label>
               <select class="form-control form-select" id="dateSelect">
@@ -41,7 +41,7 @@
               </select>
             </div>
           </div>
-          <div class="col-2">
+          <div class="col-xl-2 col-sm-12">
             <div class="form-group row">
               <button type="submit" class="btn btn-info">Search</button>
             </div>
