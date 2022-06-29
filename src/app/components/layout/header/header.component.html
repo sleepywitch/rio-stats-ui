@@ -1,6 +1,9 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
   <div class="container-fluid">
-    <a class="navbar-brand" [routerLink]="['/']">Mario Superstars Project Rio Stats</a>
+    <a class="navbar-brand" [routerLink]="['/']">
+      <img src="../assets/project_rio_logo.png" width="32" height="32" class="d-inline-block align-top img-thumbnail mr-1" alt=""/>
+      Mario Superstars Project Rio Stats
+    </a>
     <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
       &#9776;
     </button>
@@ -45,6 +48,13 @@
           <a class="nav-link" [routerLink]="['/character-data']" (click)="isMenuCollapsed = true">Character Data</a>
         </li>
       </ul>
+      <!-- Would also be where LOGIN goes
+      <ul class="navbar-nav navbar-right ml-auto">
+        <li class="nav-item justify-content-end">
+          <button class="btn btn-outline-danger" type="button">File Bug</button>
+        </li>
+      </ul>
+      -->
     </div>
   </div>
 </nav>

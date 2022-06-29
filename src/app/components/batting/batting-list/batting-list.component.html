@@ -6,7 +6,7 @@
           <tr class="text-center justify-content-center align-items-center align-content-center">
             <th mat-sort-header="NAME">NAME</th>
             <th mat-sort-header="PA">PA</th>
-            <th mat-sort-header="AB">AB</th>
+            <th mat-sort-header="AB" [ngbTooltip]="atBatTT" [openDelay]="600" container="body">AB</th>
             <th mat-sort-header="H">H</th>
             <th mat-sort-header="2B">2B</th>
             <th mat-sort-header="3B">3B</th>
@@ -95,3 +95,5 @@
     </div>
   </div>
 </div>
+
+<ng-template #atBatTT><b>At Bats</b><br/>Trips to the plate that do not result in a walk, hit by pitch, or sacrifice.</ng-template>

@@ -33,11 +33,8 @@
           <div class="col-xl-2 col-sm-3">
             <div class="form-group row">
               <label for="dateSelect" class="col-auto col-form-label">Date Range:</label>
-              <select class="form-control form-select" id="dateSelect">
-                <option selected>All to Date</option>
-                <option>Last 7 Days</option>
-                <option>Last 15 Days</option>
-                <option>Last 30 Days</option>
+              <select class="form-control form-select" id="dateSelect" formControlName="dateSearchRangeFG">
+                <option *ngFor="let dateRange of dateSearchRanges">{{dateRange}}</option>
               </select>
             </div>
           </div>

@@ -8,6 +8,7 @@ import {EnumUtilities} from "../../../utilities/enums/enum-utilities";
 import {RioCharacterStatsList} from "../../../model/rio/rio-detailed-stats";
 import {CalculatedStatsUtil} from "../../../utilities/stats/calculated-stats-util";
 import {StatBlockTypeEnum} from "../../../model/enum/stat-block-type-enum";
+import {DateSearchRangeEnum} from "../../../model/enum/date-search-range-enum";
 
 @Component({
   selector: 'app-player-batting-search',
@@ -19,6 +20,7 @@ export class PlayerBattingSearchComponent implements OnInit {
   userBattingFormGroup: FormGroup;
   rankSelectTypes: string[];
   superstarSelectTypes: string[];
+  dateSearchRanges: string[];
 
   userBattingStats: StatBlock[];
 
@@ -29,10 +31,12 @@ export class PlayerBattingSearchComponent implements OnInit {
     this.userBattingFormGroup = this.formBuilder.group({
       'usernameFG': ['', [Validators.maxLength(64), Validators.required]],
       'rankedTypeFG': [],
-      'superstarTypeFG': []
+      'superstarTypeFG': [],
+      'dateSearchRangeFG': []
     });
     this.rankSelectTypes = Object.values(RankedTypeEnum);
     this.superstarSelectTypes = Object.values(SuperstarsTypeEnum);
+    this.dateSearchRanges = Object.values(DateSearchRangeEnum);
   }
 
   search() {
@@ -49,15 +53,15 @@ export class PlayerBattingSearchComponent implements OnInit {
         this.userBattingStats = [];      //instantiate
         Object.entries(data.Stats).forEach(
           ([key, value]) => {
-            if (!value.Batting.plate_appearances) {
-              return; //bad data
+            if (!value.Batting.plate_appearances || value.Batting.plate_appearances == 0) {
+              return; //bad data or a game that was quit immediately
             }
             let characterStatBlock = new StatBlock();
             characterStatBlock.character = key;
             characterStatBlock.username = username;
             characterStatBlock.calculatedBattingStats = CalculatedStatsUtil.calculateBattingStats(value.Batting);
             characterStatBlock.rawBattingStats = value.Batting;
-            characterStatBlock.statBlockType = StatBlockTypeEnum.CHARACTER_FOR_USER;
+            characterStatBlock.statBlockType = StatBlockTypeEnum.CHARACTER;
             this.userBattingStats.push(characterStatBlock);
           }
         )

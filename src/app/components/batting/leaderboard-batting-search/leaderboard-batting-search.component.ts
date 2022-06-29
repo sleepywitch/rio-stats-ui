@@ -9,6 +9,7 @@ import {EnumUtilities} from "../../../utilities/enums/enum-utilities";
 import {RioUserStatsList} from "../../../model/rio/rio-detailed-stats";
 import {CalculatedStatsUtil} from "../../../utilities/stats/calculated-stats-util";
 import {StatBlockTypeEnum} from "../../../model/enum/stat-block-type-enum";
+import {DateSearchRangeEnum} from "../../../model/enum/date-search-range-enum";
 
 @Component({
   selector: 'app-leaderboard-batting-search',
@@ -22,6 +23,7 @@ export class LeaderboardBattingSearchComponent implements OnInit {
   characterNames: string[];
   rankSelectTypes: string[];
   superstarSelectTypes: string[];
+  dateSearchRanges: string[];
 
   playerBattingStats: StatBlock[];
 
@@ -33,11 +35,12 @@ export class LeaderboardBattingSearchComponent implements OnInit {
       'characterFG': [],
       'rankedTypeFG': [],
       'superstarTypeFG': [],
-      'dateRangeFG': []
+      'dateSearchRangeFG': []
     });
     this.characterNames = Object.values(CharacterNameEnum);
     this.rankSelectTypes = Object.values(RankedTypeEnum);
     this.superstarSelectTypes = Object.values(SuperstarsTypeEnum);
+    this.dateSearchRanges = Object.values(DateSearchRangeEnum);
   }
 
   search() {
@@ -59,6 +62,9 @@ export class LeaderboardBattingSearchComponent implements OnInit {
         this.playerBattingStats = [];     //instantiate
         Object.entries(data.Stats).forEach(
           ([key, value]) => {
+            if (!value.Batting.plate_appearances || value.Batting.plate_appearances == 0) {
+              return; //bad data or a game that was quit immediately
+            }
             let userStatsBlock = new StatBlock();
             userStatsBlock.username = key;
             userStatsBlock.calculatedBattingStats = CalculatedStatsUtil.calculateBattingStats(value.Batting);
@@ -77,6 +83,9 @@ export class LeaderboardBattingSearchComponent implements OnInit {
         this.playerBattingStats = [];      //instantiate
         Object.entries(data.Stats).forEach(
           ([key, value]) => {
+            if (!value.Batting.plate_appearances || value.Batting.plate_appearances == 0) {
+              return; //bad data or a game that was quit immediately
+            }
             let userStatBlock = new StatBlock();
             userStatBlock.username = key;
             userStatBlock.calculatedBattingStats = CalculatedStatsUtil.calculateBattingStats(value.Batting);
