@@ -21,8 +21,6 @@ export class BattingListComponent implements OnInit {
   pageSize = 27;
   pageSizeOptions: number[] = [10, 20, 27, 54];
 
-  @ViewChild(MatSort) sort: MatSort;
-
   @Input()
   set battingStatsInput(cbsInput: StatBlock[]) {
     if (cbsInput) {
@@ -37,7 +35,6 @@ export class BattingListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.sort.disableClear = true;    //can only sort asc or desc, no neutral state
   }
 
   refreshStatPage() {   //Pagination

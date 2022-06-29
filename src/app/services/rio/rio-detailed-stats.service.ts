@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {PlatformLocation} from "@angular/common";
 import {Observable} from "rxjs";
-import {RioCharacterStatsList} from "../../model/rio/rio-character-stats";
+import {RioCharacterStatsList, RioUserCharacterStatsList, RioUserStatsList} from "../../model/rio/rio-character-stats";
 import {GameHistory} from "./rio-games.service";
 
 @Injectable({
@@ -41,6 +41,29 @@ export class RioDetailedStatsService {
     tags.forEach((tag: string) => {params = params.append('tag', tag)});
 
     return this.http.get<RioCharacterStatsList>(this.getServiceBaseUrl(), {params});
+  }
+
+  getOverallBattingStatsByUser(tags: string[]): Observable<RioUserStatsList> {
+    let params = new HttpParams()
+      .set('by_user', 1)
+      .set('exclude_pitching', 1)
+      .set('exclude_fielding', 1)
+      .set('exclude_misc', 1);
+    tags.forEach((tag: string) => {params = params.append('tag', tag)});
+
+    return this.http.get<RioCharacterStatsList>(this.getServiceBaseUrl(), {params});
+  }
+
+  getCharacterBattingStatsByUser(charId: number, tags: string[]): Observable<RioUserCharacterStatsList> {
+    let params = new HttpParams()
+      .set('by_user', 1)
+      .set('char_id', charId)
+      .set('exclude_pitching', 1)
+      .set('exclude_fielding', 1)
+      .set('exclude_misc', 1);
+    tags.forEach((tag: string) => {params = params.append('tag', tag)});
+
+    return this.http.get<RioUserCharacterStatsList>(this.getServiceBaseUrl(), {params});
   }
 
   private getServiceBaseUrl(): string {

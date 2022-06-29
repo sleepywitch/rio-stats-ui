@@ -7,11 +7,15 @@ import {
   CharacterBattingSearchComponent
 } from "./components/batting/character-batting-search/character-batting-search.component";
 import {PlayerBattingSearchComponent} from "./components/batting/player-batting-search/player-batting-search.component";
+import {
+  LeaderboardBattingSearchComponent
+} from "./components/batting/leaderboard-batting-search/leaderboard-batting-search.component";
 
 const APP_ROUTES: Routes = [
   {path: 'games-basic', component: GameBasicSearchComponent},
   {path: 'batting-character', component: CharacterBattingSearchComponent},
-  {path: 'batting-player', component: PlayerBattingSearchComponent}
+  {path: 'batting-player', component: PlayerBattingSearchComponent},
+  {path: 'batting-leaderboard', component: LeaderboardBattingSearchComponent}
 ];
 
 @NgModule({

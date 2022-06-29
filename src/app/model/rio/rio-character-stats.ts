@@ -11,3 +11,11 @@ export interface RioCharacterStats {
 export interface RioCharacterStatsList {
   Stats: RioCharacterStats[];
 }
+
+export interface RioUserCharacterStatsList {
+  StatList: RioCharacterStatsList[];
+}
+
+export interface RioUserStatsList {
+  Stats: RioCharacterStats[];
+}

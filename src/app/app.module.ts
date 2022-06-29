@@ -18,6 +18,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { CharacterBattingSearchComponent } from './components/batting/character-batting-search/character-batting-search.component';
 import { BattingListComponent } from './components/batting/batting-list/batting-list.component';
 import { PlayerBattingSearchComponent } from './components/batting/player-batting-search/player-batting-search.component';
+import { LeaderboardBattingSearchComponent } from './components/batting/leaderboard-batting-search/leaderboard-batting-search.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { PlayerBattingSearchComponent } from './components/batting/player-battin
     GameBasicSearchComponent,
     CharacterBattingSearchComponent,
     BattingListComponent,
-    PlayerBattingSearchComponent
+    PlayerBattingSearchComponent,
+    LeaderboardBattingSearchComponent
   ],
   imports: [
     BrowserModule,
