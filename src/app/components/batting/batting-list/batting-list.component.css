@@ -5,18 +5,30 @@
   text-align: center !important;
 }
 
-table tr td:nth-child(1) {
+table.basic tr td:nth-child(1) {
   border-right: 1px solid black;
 }
 
-table tr td:nth-child(3) {
+table.basic tr td:nth-child(3) {
   border-right: 1px solid black;
 }
 
-table tr td:nth-child(8) {
+table.basic tr td:nth-child(8) {
   border-right: 1px solid black;
 }
 
-table tr td:nth-child(10) {
+table.basic tr td:nth-child(11) {
+  border-right: 1px solid black;
+}
+
+table.extended tr td:nth-child(1) {
+  border-right: 1px solid black;
+}
+
+table.extended tr td:nth-child(4) {
+  border-right: 1px solid black;
+}
+
+table.extended tr td:nth-child(7) {
   border-right: 1px solid black;
 }

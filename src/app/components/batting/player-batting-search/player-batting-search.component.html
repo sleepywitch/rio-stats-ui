@@ -24,6 +24,10 @@
           </div>
           <div class="col-2">
             <div class="form-group row">
+              <label for="superstarTypeSelect" class="col-auto col-form-label">Superstar Type:</label>
+              <select class="form-control form-select" id="superstarTypeSelect" formControlName="superstarTypeFG">
+                <option *ngFor="let superstarType of superstarSelectTypes">{{superstarType}}</option>
+              </select>
             </div>
           </div>
           <div class="col-2">

@@ -1,7 +1,7 @@
 <div class="row" *ngIf="battingStats && cbsPage">
   <div class="col-12">
     <div class="row" *ngIf="!extendedStatsToggle">
-      <table class="table table-sm table-striped table-responsive-md table-hover" matSort (matSortChange)="sortData($event)">
+      <table class="table basic table-sm table-striped table-responsive-md table-hover" matSort (matSortChange)="sortData($event)">
         <thead class="th-info">
           <tr class="text-center justify-content-center align-items-center align-content-center">
             <th mat-sort-header="NAME">NAME</th>
@@ -43,7 +43,7 @@
       </table>
     </div>
     <div class="row" *ngIf="extendedStatsToggle">
-      <table class="table table-sm table-striped table-responsive-md table-hover" matSort (matSortChange)="sortData($event)">
+      <table class="table extended table-sm table-striped table-responsive-md table-hover" matSort (matSortChange)="sortData($event)">
         <thead class="th-info">
         <tr>
           <th mat-sort-header="NAME">Name</th>
