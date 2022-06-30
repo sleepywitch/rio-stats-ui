@@ -26,6 +26,7 @@ export class LeaderboardBattingSearchComponent implements OnInit {
   dateSearchRanges: string[];
 
   playerBattingStats: StatBlock[];
+  battingStatsName: string;
 
   constructor(private formBuilder: FormBuilder,
               private rioDetailedStatsService: RioDetailedStatsService) { }
@@ -48,8 +49,10 @@ export class LeaderboardBattingSearchComponent implements OnInit {
       const control = this.leaderboardSearchFormGroup.value;
       let tagList = EnumUtilities.getTagListFromStrings(control.rankedTypeFG, control.superstarTypeFG);
       if (!control.characterFG || control.characterFG == 'Overall') {
+        this.battingStatsName = 'Player Overall';
         this.getOverallLeaderboardBattingStats(tagList);
       } else {
+        this.battingStatsName = control.characterFG + ' Overall';
         this.getLeaderboardBattingStatsByCharacter(control.characterFG, tagList);
       }
     }

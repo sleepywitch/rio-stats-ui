@@ -11,6 +11,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 export class BattingListComponent implements OnInit {
 
   battingStats: StatBlock[]; //characterBatterStats
+  tableName: string = 'NAME';   //left most character name
 
   extendedStatsToggle: boolean;
 
@@ -29,6 +30,13 @@ export class BattingListComponent implements OnInit {
       this.collectionSize = this.battingStats.length;
       this.extendedStatsToggle = false;
       this.refreshStatPage();
+    }
+  }
+
+  @Input()
+  set tableNameInput(tableNameInput: string) {
+    if (tableNameInput) {
+      this.tableName = tableNameInput;
     }
   }
 

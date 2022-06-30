@@ -23,6 +23,7 @@ export class CharacterBattingSearchComponent implements OnInit {
   dateSearchRanges: string[];
 
   characterBattingStats: StatBlock[];
+  battingStatsName: string = 'Character';
 
   constructor(private formBuilder: FormBuilder,
               private rioDetailedStatsService: RioDetailedStatsService) { }

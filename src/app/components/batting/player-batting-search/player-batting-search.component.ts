@@ -23,6 +23,7 @@ export class PlayerBattingSearchComponent implements OnInit {
   dateSearchRanges: string[];
 
   userBattingStats: StatBlock[];
+  battingStatsName: string;
 
   constructor(private formBuilder: FormBuilder,
               private rioDetailedStatsService: RioDetailedStatsService) { }
@@ -43,6 +44,7 @@ export class PlayerBattingSearchComponent implements OnInit {
     if (this.userBattingFormGroup.valid) {
       const control = this.userBattingFormGroup.value;
       let tagList = EnumUtilities.getTagListFromStrings(control.rankedTypeFG, control.superstarTypeFG);
+      this.battingStatsName = control.usernameFG + '\'s Characters';
       this.getUserBattingStatsByCharacter(control.usernameFG, tagList);
     }
   }

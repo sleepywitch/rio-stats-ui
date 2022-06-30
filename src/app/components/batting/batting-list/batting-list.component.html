@@ -4,7 +4,7 @@
       <table class="table basic table-sm table-striped table-responsive-md table-hover" matSort (matSortChange)="sortData($event)">
         <thead class="th-info">
           <tr class="text-center justify-content-center align-items-center align-content-center">
-            <th mat-sort-header="NAME">NAME</th>
+            <th mat-sort-header="NAME">{{tableName}}</th>
             <th mat-sort-header="PA">PA</th>
             <th mat-sort-header="AB" [ngbTooltip]="atBatTT" [openDelay]="600" container="body">AB</th>
             <th mat-sort-header="H">H</th>
