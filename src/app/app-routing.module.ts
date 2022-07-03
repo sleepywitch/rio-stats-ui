@@ -10,8 +10,10 @@ import {PlayerBattingSearchComponent} from "./components/batting/player-batting-
 import {
   LeaderboardBattingSearchComponent
 } from "./components/batting/leaderboard-batting-search/leaderboard-batting-search.component";
+import {HomePageComponent} from "./components/splash/home-page/home-page.component";
 
 const APP_ROUTES: Routes = [
+  {path: '', component: HomePageComponent},
   {path: 'games-basic', component: GameBasicSearchComponent},
   {path: 'batting-character', component: CharacterBattingSearchComponent},
   {path: 'batting-player', component: PlayerBattingSearchComponent},

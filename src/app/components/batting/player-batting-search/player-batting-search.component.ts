@@ -35,6 +35,7 @@ export class PlayerBattingSearchComponent implements OnInit {
       'superstarTypeFG': [],
       'dateSearchRangeFG': []
     });
+    this.userBattingFormGroup.get('dateSearchRangeFG')?.disable();
     this.rankSelectTypes = Object.values(RankedTypeEnum);
     this.superstarSelectTypes = Object.values(SuperstarsTypeEnum);
     this.dateSearchRanges = Object.values(DateSearchRangeEnum);

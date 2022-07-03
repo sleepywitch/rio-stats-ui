@@ -38,6 +38,7 @@ export class LeaderboardBattingSearchComponent implements OnInit {
       'superstarTypeFG': [],
       'dateSearchRangeFG': []
     });
+    this.leaderboardSearchFormGroup.get('dateSearchRangeFG')?.disable();
     this.characterNames = Object.values(CharacterNameEnum);
     this.rankSelectTypes = Object.values(RankedTypeEnum);
     this.superstarSelectTypes = Object.values(SuperstarsTypeEnum);

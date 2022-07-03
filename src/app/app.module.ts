@@ -19,6 +19,7 @@ import { CharacterBattingSearchComponent } from './components/batting/character-
 import { BattingListComponent } from './components/batting/batting-list/batting-list.component';
 import { PlayerBattingSearchComponent } from './components/batting/player-batting-search/player-batting-search.component';
 import { LeaderboardBattingSearchComponent } from './components/batting/leaderboard-batting-search/leaderboard-batting-search.component';
+import { HomePageComponent } from './components/splash/home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { LeaderboardBattingSearchComponent } from './components/batting/leaderbo
     CharacterBattingSearchComponent,
     BattingListComponent,
     PlayerBattingSearchComponent,
-    LeaderboardBattingSearchComponent
+    LeaderboardBattingSearchComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,

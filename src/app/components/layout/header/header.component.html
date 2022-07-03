@@ -1,7 +1,9 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
   <div class="container-fluid">
     <a class="navbar-brand" [routerLink]="['/']">
+      <!-- Imagine kind of doesn't look good? Vector maybe? More research? Something?
       <img src="../assets/project_rio_logo.png" width="32" height="32" class="d-inline-block align-top img-thumbnail mr-1" alt=""/>
+      -->
       Mario Superstars Project Rio Stats
     </a>
     <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
@@ -39,8 +41,10 @@
               Pitching Stats
             </a>
             <div class="dropdown-menu" aria-labelledby="ddPitchingMenuLink" ngbDropdownMenu>
-              <a class="dropdown-item" [routerLink]="['/pitching-character']" (click)="isMenuCollapsed = true">By Character</a>
               <a class="dropdown-item" [routerLink]="['/pitching-player']" (click)="isMenuCollapsed = true">By Player</a>
+              <a class="dropdown-item" [routerLink]="['/pitching-leadrboard']" (click)="isMenuCollapsed = true">Leaderboard</a>
+              <a class="dropdown-item" [routerLink]="['/pitching-character']" (click)="isMenuCollapsed = true">All Characters</a>
+              <a class="dropdown-item" [routerLink]="['/pitching-advance']" (click)="isMenuCollapsed = true">Advanced</a>
             </div>
           </div>
         </li>

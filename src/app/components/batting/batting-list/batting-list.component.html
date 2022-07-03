@@ -5,26 +5,24 @@
         <thead class="th-info">
           <tr class="text-center justify-content-center align-items-center align-content-center">
             <th mat-sort-header="NAME">{{tableName}}</th>
-            <th mat-sort-header="PA">PA</th>
             <th mat-sort-header="AB" [ngbTooltip]="atBatTT" [openDelay]="600" container="body">AB</th>
-            <th mat-sort-header="H">H</th>
-            <th mat-sort-header="2B">2B</th>
-            <th mat-sort-header="3B">3B</th>
-            <th mat-sort-header="HR">HR</th>
-            <th mat-sort-header="RBI">RBI</th>
-            <th mat-sort-header="BB">BB</th>
-            <th mat-sort-header="HBP">HBP</th>
-            <th mat-sort-header="SO">SO</th>
-            <th mat-sort-header="AVG" data-toggle="tooltip" data-trigger="hover" data-container="body" data-placement="top" data-html="true" data-title="<b>Batting Average</b><br/>The rate of hits per at-bat (H/AB)">AVG</th>
-            <th mat-sort-header="OBP">OBP</th>
-            <th mat-sort-header="SLG">SLG</th>
-            <th mat-sort-header="OPS">OPS</th>
+            <th mat-sort-header="H" [ngbTooltip]="hitsTT" [openDelay]="600" container="body">H</th>
+            <th mat-sort-header="2B" [ngbTooltip]="doublesTT" [openDelay]="600" container="body">2B</th>
+            <th mat-sort-header="3B" [ngbTooltip]="tripleTT" [openDelay]="600" container="body">3B</th>
+            <th mat-sort-header="HR" [ngbTooltip]="homeRunsTT" [openDelay]="600" container="body">HR</th>
+            <th mat-sort-header="RBI" [ngbTooltip]="runsBattedInTT" [openDelay]="600" container="body">RBI</th>
+            <th mat-sort-header="BB" [ngbTooltip]="walksTT" [openDelay]="600" container="body">BB</th>
+            <th mat-sort-header="HBP" [ngbTooltip]="hitByPitchTT" [openDelay]="600" container="body">HBP</th>
+            <th mat-sort-header="SO" [ngbTooltip]="strikeoutsTT" [openDelay]="600" container="body">SO</th>
+            <th mat-sort-header="AVG" [ngbTooltip]="battingAverageTT" [openDelay]="600" container="body">AVG</th>
+            <th mat-sort-header="OBP" [ngbTooltip]="onBasePercentageTT" [openDelay]="600" container="body">OBP</th>
+            <th mat-sort-header="SLG" [ngbTooltip]="sluggingPercentageTT" [openDelay]="600" container="body">SLG</th>
+            <th mat-sort-header="OPS" [ngbTooltip]="onBasePlusSluggingTT" [openDelay]="600" container="body">OPS</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let cbs of cbsPage">
             <td class="text-center">{{cbs.getDisplayName()}}</td>
-            <td class="text-center">{{cbs.rawBattingStats.plate_appearances}}</td>
             <td class="text-center">{{cbs.rawBattingStats.summary_at_bats}}</td>
             <td class="text-center">{{cbs.rawBattingStats.summary_hits}}</td>
             <td class="text-center">{{cbs.rawBattingStats.summary_doubles}}</td>
@@ -46,29 +44,51 @@
       <table class="table extended table-sm table-striped table-responsive-md table-hover" matSort (matSortChange)="sortData($event)">
         <thead class="th-info">
         <tr>
-          <th mat-sort-header="NAME">Name</th>
-          <th mat-sort-header="PA">PA</th>
-          <th mat-sort-header="HBP">HBP</th>
-          <th mat-sort-header="SF">SF</th>
-          <th mat-sort-header="BABIP">BABIP</th>
-          <th mat-sort-header="ISO">ISO</th>
-          <th mat-sort-header="ABHR">AB/HR</th>
-          <th mat-sort-header="BBK">BB/K</th>
-          <th mat-sort-header="BB%">BB%</th>
-          <th mat-sort-header="SO%">SO%</th>
+          <th mat-sort-header="NAME">{{tableName}}</th>
+          <th mat-sort-header="PA" [ngbTooltip]="plateAppearancesTT" [openDelay]="600" container="body">PA</th>
+          <th mat-sort-header="AB" [ngbTooltip]="atBatTT" [openDelay]="600" container="body">AB</th>
+          <th mat-sort-header="H" [ngbTooltip]="hitsTT" [openDelay]="600" container="body">H</th>
+          <th mat-sort-header="2B" [ngbTooltip]="doublesTT" [openDelay]="600" container="body">2B</th>
+          <th mat-sort-header="3B" [ngbTooltip]="tripleTT" [openDelay]="600" container="body">3B</th>
+          <th mat-sort-header="HR" [ngbTooltip]="homeRunsTT" [openDelay]="600" container="body">HR</th>
+          <th mat-sort-header="RBI" [ngbTooltip]="runsBattedInTT" [openDelay]="600" container="body">RBI</th>
+          <th mat-sort-header="SF" [ngbTooltip]="sacrificeFlyTT" [openDelay]="600" container="body">SF</th>
+          <th mat-sort-header="AVG" [ngbTooltip]="battingAverageTT" [openDelay]="600" container="body">AVG</th>
+          <th mat-sort-header="OBP" [ngbTooltip]="onBasePercentageTT" [openDelay]="600" container="body">OBP</th>
+          <th mat-sort-header="SLG" [ngbTooltip]="sluggingPercentageTT" [openDelay]="600" container="body">SLG</th>
+          <th mat-sort-header="OPS" [ngbTooltip]="onBasePlusSluggingTT" [openDelay]="600" container="body">OPS</th>
+          <th mat-sort-header="BABIP" [ngbTooltip]="battingAverageOnBallsInPlayTT" [openDelay]="600" container="body">BABIP</th>
+          <th mat-sort-header="ISO" [ngbTooltip]="isolatedPowerTT" [openDelay]="600" container="body">ISO</th>
+          <th mat-sort-header="ABHR" [ngbTooltip]="atBatPerHomeRunTT" [openDelay]="600" container="body">AB/HR</th>
+          <th mat-sort-header="BB" [ngbTooltip]="walksTT" [openDelay]="600" container="body">BB</th>
+          <th mat-sort-header="HBP" [ngbTooltip]="hitByPitchTT" [openDelay]="600" container="body">HBP</th>
+          <th mat-sort-header="BB%" [ngbTooltip]="walkPercentageTT" [openDelay]="600" container="body">BB%</th>
+          <th mat-sort-header="SO" [ngbTooltip]="strikeoutsTT" [openDelay]="600" container="body">SO</th>
+          <th mat-sort-header="SO%" [ngbTooltip]="strikeoutPercentageTT" [openDelay]="600" container="body">SO%</th>
         </tr>
         </thead>
         <tbody>
         <tr *ngFor="let cbs of cbsPage">
           <td class="text-center">{{cbs.getDisplayName()}}</td>
           <td class="text-center">{{cbs.rawBattingStats.plate_appearances}}</td>
-          <td class="text-center">{{cbs.rawBattingStats.summary_walks_hbp}}</td>
+          <td class="text-center">{{cbs.rawBattingStats.summary_at_bats}}</td>
+          <td class="text-center">{{cbs.rawBattingStats.summary_hits}}</td>
+          <td class="text-center">{{cbs.rawBattingStats.summary_doubles}}</td>
+          <td class="text-center">{{cbs.rawBattingStats.summary_triples}}</td>
+          <td class="text-center">{{cbs.rawBattingStats.summary_homeruns}}</td>
+          <td class="text-center">{{cbs.rawBattingStats.summary_rbi}}</td>
           <td class="text-center">{{cbs.rawBattingStats.sacflys}}</td>
+          <td class="text-center">{{cbs.calculatedBattingStats.battingAverage.toFixed(3)}}</td>
+          <td class="text-center">{{cbs.calculatedBattingStats.onBasePercentage.toFixed(3)}}</td>
+          <td class="text-center">{{cbs.calculatedBattingStats.sluggingPercentage.toFixed(3)}}</td>
+          <td class="text-center">{{(cbs.calculatedBattingStats.onBasePlusSlugging).toFixed(3) }}</td>
           <td class="text-center">{{cbs.calculatedBattingStats.battingAverageOnBallsInPlay.toFixed(3)}}</td>
           <td class="text-center">{{cbs.calculatedBattingStats.isolatedPower.toFixed(3)}}</td>
           <td class="text-center">{{cbs.calculatedBattingStats.atBatsPerHomeRun.toFixed(2)}}</td>
-          <td class="text-center">{{cbs.calculatedBattingStats.walksToStrikeouts.toFixed(3)}}</td>
+          <td class="text-center">{{cbs.rawBattingStats.summary_walks_bb}}</td>
+          <td class="text-center">{{cbs.rawBattingStats.summary_walks_hbp}}</td>
           <td class="text-center">{{cbs.calculatedBattingStats.walkPercentage.toFixed(3)}}</td>
+          <td class="text-center">{{cbs.rawBattingStats.summary_strikeouts}}</td>
           <td class="text-center">{{cbs.calculatedBattingStats.strikeoutPercentage.toFixed(3)}}</td>
         </tr>
         </tbody>
@@ -96,4 +116,23 @@
   </div>
 </div>
 
+<ng-template #plateAppearancesTT><b>Plate Appearances</b><br/>The number of times a player has taken their turn at bat</ng-template>
 <ng-template #atBatTT><b>At Bats</b><br/>Trips to the plate that do not result in a walk, hit by pitch, or sacrifice.</ng-template>
+<ng-template #hitsTT><b>Hits</b><br/>When a batter reaches base safely on a fair ball</ng-template>
+<ng-template #doublesTT><b>Doubles</b><br/>When a batter reaches on a hit and stops at second base</ng-template>
+<ng-template #tripleTT><b>Triples</b><br/>When a batter reaches on a hit and stops at third base</ng-template>
+<ng-template #homeRunsTT><b>Home Runs</b><br/>When a batter reaches on a hit, touches all bases, and scores a run</ng-template>
+<ng-template #runsBattedInTT><b>Runs Batted In</b><br/>Runs which score because of the batter's safe hit, sac fly, or infielder out</ng-template>
+<ng-template #walksTT><b>Walks</b><br/>When a runner is awarded first base after four balls have been called</ng-template>
+<ng-template #hitByPitchTT><b>Hit-by-Pitch</b><br/>When a batter is struck by a pitched ball and is awarded first base</ng-template>
+<ng-template #sacrificeFlyTT><b>Sacrifice Flies</b><br/>When a batter hits a fly ball to the outfield that is caught and a runner scores</ng-template>
+<ng-template #strikeoutsTT><b>Strikeouts</b><br/>When three strikes are called on the batter</ng-template>
+<ng-template #battingAverageTT><b>Batting Average</b><br/>The rate of hits per at-bat<br/><i>H/AB</i></ng-template>
+<ng-template #onBasePercentageTT><b>On-Base Percentage</b><br/>The rate at which a batter reached base in their plate appearances<br/><i>(H+BB+HBP)/(AB+BB+HBP+SF)</i></ng-template>
+<ng-template #sluggingPercentageTT><b>Slugging Percentage</b><br/>The rate of total bases per at-bat<br/><i>(1B+2B*2+3B*3+HR*4)/AB</i></ng-template>
+<ng-template #onBasePlusSluggingTT><b>On-Base Plus Slugging</b><br/>The sum of on-base percentage and slugging percentage<br/><i>OBP+SLG</i></ng-template>
+<ng-template #battingAverageOnBallsInPlayTT><b>Batting Average on Balls in Play</b><br/>A measure of a player's batting average exclusively on balls hit into play, removing outcomes not affected by the opponents defense (namely home runs and strikeouts)<br/><i>(H-HR)/(AB-K-HR+SF)</i></ng-template>
+<ng-template #isolatedPowerTT><b>Isolated Power</b><br/>The raw power of a hitter, measured as the rate of extra bases per at bat<br/><i>(2B+(2*3B)+(3*HR))/AB</i></ng-template>
+<ng-template #atBatPerHomeRunTT><b>At Bats per Home Run</b><br/>A batter's ratio of at bats to home runs<br/><i>AB/HR</i></ng-template>
+<ng-template #walkPercentageTT><b>Walk Percentage</b><br/>The rate at which a batter walks in their plate appearances<br/><i>BB/PA</i></ng-template>
+<ng-template #strikeoutPercentageTT><b>StrikeoutPercentage</b><br/>The rate at which a batter strikes out in their plate appearances<br/><i>SO/PA</i></ng-template>
