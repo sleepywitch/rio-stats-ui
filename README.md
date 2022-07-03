@@ -2,21 +2,20 @@
 
 [Project Rio](https://www.projectrio.online) | [Project Rio Stats API](https://github.com/ProjectRio/ProjectRio-web) | [Project Rio Discord](https://discord.gg/ZMFCuvwAyH)
 
-Hello! This is a prototype user interface to access Project Rio Stats. Currently only the game basic search, batting stats by character and by player are functioning.
-
+Hello! This is a prototype user interface to access Project Rio Stats. As of current the only functioning web pages are the game basic search, and batting stats by player, leader, and all characters.
 ## How to Run
 
-Run `ng serve --open` in the root directory. for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+1. Have [NPM](https://www.npmjs.com/) installed.
+2. Run `npm install` in the project root
+3. Run `ng serve --open` in the root directory.
+4. Your default browser should automatically open a tab at `http://localhost:4200/`.
 
 ## How to Develop
 
-Familiarity with angular - bootstrap - typescript/json - npm - html are all good starting points. This is the list of local installs I had to do to get this running. You may have to do the same:
+Familiarity with angular - bootstrap - typescript/json - npm - html are all good starting points. 
+If you haven't run `npm install` above, start there. Then use an IDE such as Visual Studio Code (free) or Intellij (paid)
 
-* `npm i @angular/cli`
-* `nom i @angular/cdk`
-* `npm i @angular/material`
-* `npm i @ng-table`
-* `npm i postcss-custom-selectors`
+**TIP**: The application will automatically reload if you change any of the source files.
 
 ## Further help
 
