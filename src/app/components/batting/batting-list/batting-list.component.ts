@@ -54,6 +54,10 @@ export class BattingListComponent implements OnInit {
     this.extendedStatsToggle = est;
   }
 
+  parsePercentage(percentage: number): string {
+    return (percentage*100).toFixed(2) + '%';
+  }
+
   private compare(a: number | string, b: number | string, isAsc: boolean) {
     return (a < b ? -1: 1) * (isAsc ? 1 : -1);
   }

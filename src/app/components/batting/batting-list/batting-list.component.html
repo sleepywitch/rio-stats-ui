@@ -87,9 +87,9 @@
           <td class="text-center">{{cbs.calculatedBattingStats.atBatsPerHomeRun.toFixed(2)}}</td>
           <td class="text-center">{{cbs.rawBattingStats.summary_walks_bb}}</td>
           <td class="text-center">{{cbs.rawBattingStats.summary_walks_hbp}}</td>
-          <td class="text-center">{{cbs.calculatedBattingStats.walkPercentage.toFixed(3)}}</td>
+          <td class="text-center">{{parsePercentage(cbs.calculatedBattingStats.walkPercentage)}}</td>
           <td class="text-center">{{cbs.rawBattingStats.summary_strikeouts}}</td>
-          <td class="text-center">{{cbs.calculatedBattingStats.strikeoutPercentage.toFixed(3)}}</td>
+          <td class="text-center">{{parsePercentage(cbs.calculatedBattingStats.strikeoutPercentage)}}</td>
         </tr>
         </tbody>
       </table>
